@@ -11,7 +11,7 @@ import { fetchHeatmap } from '../utils'
 import KeyVizSettingForm from './KeyVizSettingForm'
 import KeyVizToolbar from './KeyVizToolbar'
 
-import './KeyViz.less'
+import styles from './Styles.module.less'
 
 type CacheEntry = {
   metricType: DataTag
@@ -234,7 +234,7 @@ const KeyViz = () => {
       )
 
   return (
-    <div className="PD-KeyVis">
+    <div className={styles.pdKeyVis}>
       <KeyVizToolbar
         enabled={enabled}
         dateRange={getDateRange()}

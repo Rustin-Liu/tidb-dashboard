@@ -25,6 +25,8 @@ import Flexbox from '@g07cha/flexbox-react'
 import { Card, Toolbar } from '@lib/components'
 import { getValueFormat } from '@baurine/grafana-value-formats'
 
+import styles from './Styles.module.less'
+
 function RefreshProgress(props) {
   const { value } = props
   const r = 50
@@ -44,7 +46,7 @@ function RefreshProgress(props) {
       viewBox="0 0 120 120"
       width="1em"
       height="1em"
-      className="anticon"
+      className={styles.anticon}
       style={{
         transform: 'rotate(-90deg)',
       }}
@@ -178,19 +180,19 @@ class KeyVizToolbar extends Component<IKeyVizToolbarProps & WithTranslation> {
 
     return (
       <Card>
-        <Toolbar className="PD-KeyVis-Toolbar">
+        <Toolbar className={styles.pdKeyVisToolbar}>
           <Space>
             <Dropdown
               disabled={!enabled}
               overlay={
-                <div id="PD-KeyVis-Brightness-Overlay">
+                <div id="pd-key-vis-brightness-overlay">
                   <div
                     onClick={(e) => {
                       e.stopPropagation()
                     }}
                   >
                     <Flexbox flexDirection="column">
-                      <div className="PD-Cluster-Legend" />
+                      <div className={styles.pdClusterLegend} />
                       <Slider
                         defaultValue={0}
                         min={-6}
@@ -237,7 +239,7 @@ class KeyVizToolbar extends Component<IKeyVizToolbarProps & WithTranslation> {
                 <Select.Option
                   key={hour}
                   value={hour * 60 * 60}
-                  className="PD-KeyVis-Select-Option"
+                  className={styles.pdKeyVisSelectOption}
                 >
                   <ClockCircleOutlined /> {getValueFormat('h')(hour, 0)}
                 </Select.Option>
@@ -254,7 +256,7 @@ class KeyVizToolbar extends Component<IKeyVizToolbarProps & WithTranslation> {
                 <Select.Option
                   key={option.text}
                   value={option.value}
-                  className="PD-KeyVis-Select-Option"
+                  className={styles.pdKeyVisSelectOption}
                 >
                   <AreaChartOutlined /> {option.text}
                 </Select.Option>
